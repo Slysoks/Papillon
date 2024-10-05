@@ -29,6 +29,9 @@ const GradesLatestList = (props: GradesLatestListProps) => {
           flexDirection: "row",
           gap: 10,
         }}
+        snapToAlignment={"start"}
+        snapToInterval={241}
+        decelerationRate="fast"
       >
         {latestGrades.map((grade, index) => (
           <GradesLatestItem key={index} grade={grade} i={index} navigation={navigation} allGrades={allGrades} />
