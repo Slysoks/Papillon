@@ -16,6 +16,7 @@ import {
   Delete,
   ShareIcon,
   TriangleAlert,
+  BookOpen,
 } from "lucide-react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { PressableScale } from "react-native-pressable-scale";
@@ -90,7 +91,9 @@ const SettingsDevLogs: Screen<"SettingsDevLogs"> = ({ navigation }) => {
               leading={
                 <NativeIcon
                   icon={
-                    log.type === "ERROR" ? (
+                    (log.message).startsWith("User navigate into /") ? (
+                      <BookOpen />
+                    ) : log.type === "ERROR" ? (
                       <CircleX />
                     ) : log.type === "WARN" ? (
                       <TriangleAlert />
@@ -101,13 +104,15 @@ const SettingsDevLogs: Screen<"SettingsDevLogs"> = ({ navigation }) => {
                     )
                   }
                   color={
-                    log.type === "ERROR"
-                      ? "#BE0B00"
-                      : log.type === "WARN"
-                        ? "#CF6B0F"
-                        : log.type === "INFO"
-                          ? "#0E7CCB"
-                          : "#AAA"
+                    (log.message).startsWith("User navigate into /")
+                      ? "#CC6600"
+                      : log.type === "ERROR"
+                        ? "#BE0B00"
+                        : log.type === "WARN"
+                          ? "#CF6B0F"
+                          : log.type === "INFO"
+                            ? "#0E7CCB"
+                            : "#AAA"
                   }
                   style={{
                     marginLeft: -6,
