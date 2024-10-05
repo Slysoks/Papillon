@@ -184,7 +184,7 @@ const SettingsAbout: Screen<"SettingsAbout"> = ({ navigation }) => {
         </NativeItem>
         <NativeItem
           onPress={
-            () => Platform.OS === "ios" ? setClickedOnDependencies(clickedOnDependencies + 1) : navigation.navigate("SettingsDevLogs")
+            () => Platform.OS === "android" ? setClickedOnDependencies(clickedOnDependencies + 1) : navigation.navigate("SettingsDevLogs")
           }
           chevron={false}
         >
