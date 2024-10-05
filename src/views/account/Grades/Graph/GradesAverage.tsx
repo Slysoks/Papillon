@@ -49,10 +49,15 @@ const GradesAverageGraph: React.FC<GradesAverageGraphProps> = ({ grades, overall
   useEffect(() => {
     if (currentAvg !== originalCurrentAvg) {
       // repeat 3 times
-      for (let i = 0; i < 3; i++) {
-        setTimeout(() => {
-          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-        }, 100 + (i * 80));
+      if (Platform.OS == "android") {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      }
+      else {
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          }, 100 + (i * 80));
+        }
       }
     }
   }, [currentAvg]);
