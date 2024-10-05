@@ -191,7 +191,9 @@ const Settings: Screen<"Settings"> = ({ route, navigation }) => {
           label: "Soutenir Papillon",
           onPress: () => {
             Platform.OS === "android" ? openUrl("https://papillon.bzh/donate") : undefined;
-          },
+          }
+        },
+        {
           icon: <Scroll />,
           color: "#c75110",
           label: "Quoi de neuf ?",
