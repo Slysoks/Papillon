@@ -124,6 +124,7 @@ const NewsItem = ({route, navigation}) => {
         contentContainerStyle={{
           paddingBottom: 16,
           paddingTop: 96,
+          marginTop: 16,
         }}
       >
         <View style={{paddingHorizontal: 16}}>
