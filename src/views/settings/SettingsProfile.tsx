@@ -149,7 +149,7 @@ const SettingsProfile: Screen<"SettingsProfile"> = ({ navigation }) => {
                 fontFamily: "semibold",
                 color: theme.colors.text,
               }}
-              placeholder="Théo"
+              placeholder={oldFirstName}
               placeholderTextColor={theme.colors.text + "80"}
               value={firstName}
               onChangeText={setFirstName}
@@ -171,7 +171,7 @@ const SettingsProfile: Screen<"SettingsProfile"> = ({ navigation }) => {
                 fontFamily: "semibold",
                 color: theme.colors.text,
               }}
-              placeholder="Dubois"
+              placeholder={oldLastName}
               placeholderTextColor={theme.colors.text + "80"}
               value={lastName}
               onChangeText={setLastName}
