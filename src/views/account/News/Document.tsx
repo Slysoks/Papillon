@@ -23,11 +23,11 @@ import {useCurrentAccount} from "@/stores/account";
 import PapillonPicker from "@/components/Global/PapillonPicker";
 
 const NewsItem = ({route, navigation}) => {
+  const theme = useTheme();
+  const { colors } = theme;
   let message = route.params.message && JSON.parse(route.params.message) as Information;
   const important = route.params.important;
   const account = useCurrentAccount((store) => store.account!);
-
-  const theme = useTheme();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -63,7 +63,13 @@ const NewsItem = ({route, navigation}) => {
   return (
     <View style={{flex: 1}}>
       <PapillonModernHeader outsideNav={true}>
-        <View style={{flexDirection: "row", gap: 10, alignItems: "center"}}>
+        <View style={{
+          flexDirection: "row",
+          gap: 10,
+          alignItems: "center",
+          backgroundColor: colors.card,
+          padding: 16,
+        }}>
           <InitialIndicator
             initial={message.author}
             color={theme.colors.primary}
@@ -79,10 +85,11 @@ const NewsItem = ({route, navigation}) => {
             data={[
               {
                 icon: message.read ? <EyeOff /> : <Eye />,
-                label:  message.read ? "Marquer comme non lu" : "Marquer comme lu",
+                label:  message.read ? "Non lu" : "Lu",
                 onPress: () => {
                   setNewsRead(account, message, !message.read);
                   message.read = !message.read;
+                  navigation.goBack();
                 }
               }
             ]}
