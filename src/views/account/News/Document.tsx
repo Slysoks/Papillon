@@ -93,7 +93,7 @@ const NewsItem: Screen<"NewsItem"> = ({ route, navigation }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <PapillonModernHeader native height={110} outsideNav={true}>
+      <PapillonModernHeader native>
         <View style={{ flexDirection: "row", gap: 12, alignItems: "center" }}>
           <InitialIndicator
             initial={parse_initials(message.author)}
