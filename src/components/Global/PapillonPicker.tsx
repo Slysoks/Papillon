@@ -196,8 +196,7 @@ const styles = StyleSheet.create({
   },
   item: {
     paddingVertical: 12,
-    paddingRight: 22,
-    marginLeft: 16,
+    marginHorizontal: 12,
     width: "100%",
     flexDirection: "row",
     justifyContent: "flex-start",
