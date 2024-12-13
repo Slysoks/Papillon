@@ -42,7 +42,7 @@ import {
   Platform,
   RefreshControl,
   StatusBar,
-  View
+  View,
 } from "react-native";
 import Reanimated from "react-native-reanimated";
 import Animated, {
@@ -110,7 +110,6 @@ const Home: Screen<"HomeScreen"> = ({ navigation }) => {
   }));
 
   const modalAnimatedStyle = useAnimatedStyle(() => ({
-    borderCurve: "continuous",
     borderTopLeftRadius: interpolate(
       scrollOffset.value,
       [0, 100, 265 + insets.top - 1, 265 + insets.top],
@@ -124,11 +123,14 @@ const Home: Screen<"HomeScreen"> = ({ navigation }) => {
       Extrapolation.CLAMP
     ),
 
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    ...(Platform.OS === "ios" ? {
+      borderCurve: "continuous",
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+    } : {}),
     shadowOpacity: 0.2,
     shadowRadius: 10,
 
