@@ -11,9 +11,9 @@ import * as Haptics from "expo-haptics";
 import useSoundHapticsWrapper from "@/utils/native/playSoundHaptics";
 
 interface GradesLatestListProps {
-  latestGrades: Grade[]
-  allGrades: Grade[]
-  navigation: NativeStackNavigationProp<RouteParameters, "Grades", undefined>
+  latestGrades: Grade[];
+  allGrades: Grade[];
+  navigation: NativeStackNavigationProp<RouteParameters, "Grades", undefined>;
 }
 
 const GradesLatestList = (props: GradesLatestListProps) => {
@@ -31,9 +31,7 @@ const GradesLatestList = (props: GradesLatestListProps) => {
   );
 
   return (
-    <Reanimated.View
-      layout={anim2Papillon(LinearTransition)}
-    >
+    <Reanimated.View layout={anim2Papillon(LinearTransition)}>
       <NativeListHeader animated label="Dernières notes" />
 
       <FlatList
@@ -66,7 +64,6 @@ const GradesLatestList = (props: GradesLatestListProps) => {
           }
         }}
       />
-
     </Reanimated.View>
   );
 };
