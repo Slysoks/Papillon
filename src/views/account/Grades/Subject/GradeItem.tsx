@@ -50,7 +50,6 @@ const GradeItem: React.FC<GradeItemProps> = ({
         <View
           style={{
             backgroundColor: subjectData.color + "22",
-            padding: 10,
             borderRadius: 100,
             height: 40,
             width: 40,
