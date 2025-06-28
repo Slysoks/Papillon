@@ -61,6 +61,7 @@ const SettingsExperimental: Screen<"SettingsExperimental"> = ({ navigation }) =>
                 colors={item.colors}
               />
             }
+            chevron={!("disabled" in item && item.disabled)}
             trailing={
               item.beta && (
                 <View
